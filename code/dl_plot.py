@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-class_names = ['cero','uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve']
+class_names = ['airplane','automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
 
 
 def plot_value_array(i, predictions_array, true_label):
@@ -19,11 +19,11 @@ def plot_value_array(i, predictions_array, true_label):
 
 
 def plot_image(i, predictions_array, true_label, img):
-    predictions_array, true_label, img = predictions_array[i], true_label[i], img[i]
+    predictions_array, true_label, img = predictions_array[i], true_label[i], img[i]    
     plt.grid(False)
     plt.xticks([])
     plt.yticks([])
-    plt.imshow(img.reshape(28, 28), cmap=plt.cm.binary)
+    plt.imshow(img.reshape(32, 32,3), cmap=plt.cm.binary)
     predicted_label = np.argmax(predictions_array)
     if predicted_label == true_label:
         color = 'blue'
